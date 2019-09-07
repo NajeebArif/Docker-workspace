@@ -36,4 +36,14 @@ This docker file is an extension to [Jboss Wildfly](https://hub.docker.com/r/jbo
   
   `docker run -m 1G -e JVM_ARGS="-Xmx512M" -it --name name-of-the-container -p 8080:8080 -p 9990:9990 image-name`
   
+  To verify if the specified memory and heap size was set properly you can connect to your running docker container and then check the flags of the wildfly process running in it.
+  
+  ```
+  docker exec -ti <container-name> /bin/bash 
+  ..
+  jps
+  ..
+  jinfo -flags <pid-which-you-got-from-running-java-process>
+  ```
+  
   You can now access the admin console at `localhost:9990` with the credentials defined and the deployed app will be exposed on port `localhost:8080`.
