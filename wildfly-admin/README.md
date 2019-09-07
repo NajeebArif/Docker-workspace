@@ -32,4 +32,8 @@ This docker file is an extension to [Jboss Wildfly](https://hub.docker.com/r/jbo
   
   `docker run -it --name name-of-the-container -p 8080:8080 -p 9990:9990 image-name`
   
+  or to specify the memory and heap size
+  
+  `docker run -m 1G -e JVM_ARGS="-Xmx512M" -it --name name-of-the-container -p 8080:8080 -p 9990:9990 image-name`
+  
   You can now access the admin console at `localhost:9990` with the credentials defined and the deployed app will be exposed on port `localhost:8080`.
